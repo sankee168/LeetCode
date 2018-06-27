@@ -1,3 +1,5 @@
+//Space complexity: O(1)
+//Time complexity: O(n)
 public int shortestDistance(String[] words, String word1, String word2) {
 	int p = -1;
 	int q = -1;
