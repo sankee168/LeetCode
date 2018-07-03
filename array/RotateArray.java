@@ -18,3 +18,5 @@ public void rotate(int[] nums, int k) {
 		nums[i] = temp[i];
 	}
 }
+
+
