@@ -1,9 +1,8 @@
 //Backtracking problem
 //We have to try all combinations of the candidates to find it out
-//TIime complexity: O(n!)
-//Space complexity: O(m) where m is the size of the candidates array
+//Tiime complexity: O(n!) where n is the size of the candidates array
+//Space complexity: O(m) m is the size of the return list
 public List<List<Integer>> combinationSum(int[] candidates, int target) {
-	Arrays.sort(candidates);
 	List<List<Integer>> arr =  new ArrayList<>();
 	backtrack(arr, new ArrayList<>(), candidates, target, 0);
 	return arr;
