@@ -1,3 +1,5 @@
+//Time complexity : O(n2)
+//Space complexity: O(n2)
 public int countSubstrings(String s) {
 	int count = 0;
 	int n = s.length();
@@ -6,7 +8,7 @@ public int countSubstrings(String s) {
 		arr[i][i] = 1;
 		count++;
 	}
-	for(int k = 1; k < n-1; k++){
+	for(int k = 1; k < n; k++){
 		for(int i = 0; i < n-k; i++){
 			int p = i;
 			int q = i+k;
