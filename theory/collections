@@ -1,0 +1,69 @@
+Collection framework: Collections are used in every programming language. Collection framework is the group of collection interfaces, implementations and algorithms.
+
+Benefits of collection framework:
+1. Reduced development effort by using already implemented collection classes rather than implementing our custom classes
+2. Code quality : Less bugs as these collection framework classes are well tested
+3. Maintenance: Reduced effort of maintaining these classes as they are shipped as part of jdk
+4. Reusability
+
+Benefits of having generics in collection framework? 
+Generics allow us to provide type of object that collection can contain. If not we have to cast that object into whichever collection is taking in. By using generics you can escape this casting which means cleaner code and ClassCastException at runtime.
+
+Basic interfaces of collection framework: 
+Collection, Set, List, Map, Queue, Iterator etc
+
+Why collection doesn't extend cloneable and serializable interfaces? 
+Because collection is an abstract representation. But what matters is the implementation. So concrete implementations should be cloned and serialized if they should be. So having this constraint on all implementations is more restrictive than flexible. 
+
+Why Map interface doesn't extend Collection interface? 
+Because map is not a collection in literal meaning. Map contains key value pairs. but there are no group of elements. So map doesn't extend collection interface
+
+Differnce between enumeration and iterators
+enumeration is twice as fast as iterator and uses less memory too. Enumeration is very basic but iterator is much safer as compared to enumeration becauese it doesn't allow other threads to modify the colleciton which it is iterating. 
+
+What is iterator fail-fast property? 
+Every time, iterator goes to next instance it checks if the current collection is being modified or not. If modified, it throws concurrentmodification exception. All of implementations of iterator are fail-fast except concurrent classes like concurrenthashmap etc
+
+How HashMap works in Java? 
+HashMap stores key-value pairs in Map.Entry nested class. HashMap uses hashcode() and equals() methods in put and get methods. When we call put method, Hashmap uses hashcode() to find out the index to store the key-value pair in an array. All the entries are store in linkedlist. and the value in the index of array points to the linkedlist where this entry will be stored. If there is an entry in the array, then we use equals() to check if there exists some entry with same key. 
+When we call get method by passing key, it follows similar process. first it geneate the hashcode to find the index of the array and then uses equals method to check if there exists any entry with same key. 
+
+What are different collection views provided by map? 
+Set<K> keySet()
+Collection<V> values()
+Set<Map,Entry<K, V>> entrySet()
+
+Difference between HashMap and HashTable
+1. HashMap allows null key and value where as hashtable doesn't allow null key and values
+2. Hashtable is synchronized where as hashmap is not synchornized. this is why hashtable is best for multi threaded environment. 
+3. HashMap and Hashtable by default doesn't gaurentee the iteration order but LinkedHashmap(subclass of hashmap) gaurentees that
+4. HashMap is fail-fast because it gives set of keys to iterate but hashtable provides enumeration of the keys that doesn't support this feature.
+
+Difference between arrays and arraylists
+1. size if fixed in arrays where as arraylist is not
+2. arrays can take primitive types and objects where as arraylists only takes objects
+
+Difference between arraylist and linkedlist
+1. insertion, deletion and removal are faster in linkedlist where as arraylist doesn't have a concept of resizing or updating index when element is added in the middle
+2. linkedlist consumes more memory because of storing next and prev pointers
+3. arraylist is index based data structure backed by arrays where as linkedlist is not. So arraylist access is faster than linkedlist
+
+Which collection classes are threadsafe? 
+any synchronized classes are thread safe like hashtable, stack, properties
+
+Difference between queue and stack
+quque is an interface in collection class where its implementations support FIFO order but stack is class which extends vector and supports LIFO.
+
+What is collections class
+This is a utility class consisting of all static methods like binarysearch, sorting, reverse etc
+
+What is comparable and comparator interface?
+Comparable interface should be implemented by any custom class if we want to use collections sorting methods. Comparable has comapreto(T obj) method which is being used by any sorting methods. Comparator interface provides compare(Object ob1, Object ob2) method. Comparable.compareTo method implementation can sort based on one field only. If we want to sort the objects based on different fields then we need to use Comparator. Comparable is defualt sorting method but if we want to sort based on different parameters at runtime, you imeplement custom comparator and provide this for sorting. 
+
+What is java priortity queue? 
+This is unbounded quque based on a priority heap and we can provide comaprator for deciding the priortity at the time of creation. This doesn't allow null values. This is not thread-safe and takes O(logn) time for enqueue or dequeue operations
+
+How HashSet is implemented internally?
+Internally Hashset uses hashmap to store these values. As we know hashmap keeps its keys unique. When you initialize the hashset, it internally initializes the hashmap. for any add(Object ob) on hashset, hashmap tries inserting (obj, dummy) with key as object you passed and dummy value. So if there is already an existing key it returns null in put call. So add method is being checked. 
+
+Time complexities for different collection implementations
