@@ -1,0 +1,43 @@
+Arrays:
+add - O(1)
+remove - O(n)
+contains - O(n)
+size - O(1)
+
+Single linked list: 
+insert - O(1) if done at head, else O(n)
+delete - O(1) if done at head, else O(n)
+search - O(n)
+
+Doubly linked list
+insert - O(1) if done at head, else O(n)
+delete - O(1) if done at head, else O(n)
+search - O(n)
+
+Stack
+push - O(1)
+pop - O(1)
+top - O(1)
+search - O(n)
+
+Queue
+insert - O(1)
+remove - O(1)
+size - O(1)
+
+BST - 
+insert - average O(logn) worst O(n)
+delete - average O(logn) worst O(n)
+search - average O(logn) worst O(n)
+
+Heap/Priority Queue
+find min/find max - O(1)
+insert - O(logn)
+delete min/delete max - O(logn)
+extract min/get max - O(logn)
+lookup - O(n)
+
+HashMap
+insert - O(1)
+re-size/hash - O(n)
+contains - O(1)
