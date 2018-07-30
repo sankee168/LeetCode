@@ -1,37 +1,26 @@
+//This implementation is same as SpiralMatrix1
+//Time complexity : O(n2)
+//Space complexity: O(n2) for generating the matrix
 public int[][] generateMatrix(int n) {
-	int[][] arr = new int[n][n];
-	int i = 0;
-	int j = 0;
-	int start = 1;
-	while(n != 0){
-		util(arr, i, j, start, n);		
-		i++; j++; start += (n-1)*4;
-		n = n/2;
+	int count = 1;
+	int[][] matrix = new int[n][n];
+	int r1 = 0, r2 = n-1, c1 =0, c2 = n-1;
+	while(r1<=r2 && c1<=c2){
+		for(int c = c1; c<=c2; c++){
+			matrix[r1][c] = count++;
+		}
+		for(int r=r1+1; r<=r2; r++){
+			matrix[r][c2] = count++;
+		}
+		if(r1 < r2 && c1 < c2){
+			for(int c=c2-1; c>=c1; c--){
+				matrix[r2][c] = count++;
+			}
+			for(int r=r2-1; r>r1; r--){
+				matrix[r][c1] = count++;
+			}
+		}
+		r1++;r2--;c1++;c2--;
 	}
-
-	return arr;
-}
-
-private void util(int[][] arr, int p, int q, int start, int n){
-	int i = p; 
-	int j = q;
-	while(j < q+n){
-		arr[i][[j] = start++;
-		j++;
-	}
-	j--;
-	while(i < p+n){
-		arr[i][[j] = start++;
-		i++;
-	}
-	i--;
-	while(j >= q){
-		arr[i][[j] = start++;
-		j--;
-	}
-	j++;
-	while(i > p){
-		arr[i][[j] = start++;
-		i--;
-	}
+	return matrix;
 }
