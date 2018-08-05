@@ -21,3 +21,4 @@ class Logger {
  * Logger obj = new Logger();
  * boolean param_1 = obj.shouldPrintMessage(timestamp,message);
  */
+

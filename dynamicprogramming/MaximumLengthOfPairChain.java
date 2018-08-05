@@ -35,28 +35,21 @@ class PairComparator implements Comparator<int[]> {
 
 public int findLongestChain(int[][] pairs) {
 	Arrays.sort(pairs, new PairComparator());
-	int[] dp = new int[pairs.length];
-	for(int i = pairs.length-1; i >= 0; i--){
-		dp[i] = 1;
-		for(int j = i+1; j < pairs.length; j++){
-			if(pairs[i][1] < pairs[j][0]){
-				dp[i] = Math.max(dp[i], dp[j]+1);
-			}else dp[i] = Math.max(dp[i], dp[j]);
+	int prevEnd = Integer.MIN_VALUE, count = 0;
+	for(int i = 0; i < pairs.length; i++){
+		if(pairs[i][0] > prevEnd){
+			count++; prevEnd = pairs[i][1];
 		}
 	}
 
-	return dp[0];
+	return count;
 }
 
 class PairComparator implements Comparator<int[]> {
 	@Override
 	public int compare(int[] i1, int[] i2){
-		if(i1[0] < i2[0]) return -1;
-		if(i1[0] == i2[0]){
-			if(i1[1] < i2[1]) return -1;
-			else if(i1[1] == i2[1]) return 0;
-			else return 1;
-		}
+		if(i1[1] < i2[1]) return -1;
+		if(i1[1] == i2[1]) return 0;
 		else return 1;
 	}
 }
