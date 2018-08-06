@@ -1,3 +1,4 @@
+//Note that set doesn't have get(element) functionality as there is no order associated to it. 
 class RandomizedSet {
 
     Map<Integer, Integer> map;

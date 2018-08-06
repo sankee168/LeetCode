@@ -1,4 +1,4 @@
-//we will be appending size of curr string and then any character which you can identify and then string. 
+//we will be appending size of curr string and then any character which you can identify and then string.
 public class Codec {
 
     // Encodes a list of strings to a single string.
