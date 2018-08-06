@@ -18,3 +18,5 @@ public String decodeAtIndex(String S, int K) {
 
 	return sb.toString().substring(K-1, K);
 }
+
+

@@ -21,3 +21,22 @@ public boolean checkSubarraySum(int[] nums, int k) {
     }        
     return false;
 }
+
+
+//Time complexity: O(n)
+//Space complexity: O(k) where n is the length of nums and k is the input integer
+//Trick here is to check if there occurs repeating remainder. say a%k == (a+b+c+d)%k that means b+c+d is perfectly divisible by k
+public boolean checkSubarraySum(int[] nums, int k) {
+    Set<Integer> set = new HashSet<>();
+    int sum = 0, previousRem = 0;
+    for(int i = 0; i < nums.length; i++){
+        sum += nums[i];
+        if(k != 0) sum %= k;
+        if(set.contains(sum)) return true;
+        set.add(previousRem);
+        previousRem = sum;
+    }
+    return false;
+}
+
+
