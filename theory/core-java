@@ -1,0 +1,85 @@
+Explain public static void main(String args[]).
+public : Public is an access modifier, which is used to specify who can access this method. Public means that this Method will be accessible by any Class.
+static : It is a keyword in java which identifies it is class based i.e it can be accessed without creating the instance of a Class.
+void : It is the return type of the method. Void defines the method which will not return any value.
+main: It is the name of the method which is searched by JVM as a starting point for an application with a particular signature only. It is the method where the main execution occurs.
+String args[] : It is the parameter passed to the main method.
+
+What is singleton class? 
+Singleton class is a class whose only one instance can be created at any given time, in one JVM. A class can be made singleton by making its constructor private.
+
+What is polymorphism? 
+It can be described as "one interface and many implementations". This is like ability to assign a difference usage for the something in different contexts.
+Two types of polymorphism, compile time and run time polymorphism. 
+
+What is compile time polymorphism? 
+This is done by method overloading. If the two methods have the same name but different signatures(type of arguments, count of arguments).
+This is like adding/extending the existing functionality
+
+What is run time polymorphism? 
+This is done by using inheritance and interface. This is a process in which call to the overridden method is resolved at run time.
+This can be treated as changing existing behavior. This always requires inheritance. 
+class Animal {
+   public void move() {
+      System.out.println("Animals can move");
+   }
+}
+class Dog extends Animal {
+   public void move() {
+      System.out.println("Dogs can walk and run");
+   }
+}
+public class TestDog {
+   public static void main(String args[]) {
+      Animal a = new Animal(); // Animal reference and object
+      Animal b = new Dog(); // Animal reference but Dog object
+      a.move(); // runs the method in Animal class
+      b.move(); // runs the method in Dog class
+   }
+}
+
+
+What is abstract class?
+Abstract classes are used in java to create a class with some default method implementation for subclasses.
+1. An abstract class can provide complete, default code and/or just the details that have to be overridden.
+2. In case of abstract class, a class may extend only one abstract class.
+3. An abstract class can have non-abstract methods.
+4. An abstract class can have instance variables.	
+5. An abstract class can have any visibility: public, private, protected.	
+6. If we add a new method to an abstract class then we have the option of providing default implementation and therefore all the existing code might work properly
+7. An abstract class can contain constructors	
+
+What is interface?
+1. An interface cannot provide any code at all,just the signature.
+2. A Class may implement several interfaces.
+3. All methods of an Interface are abstract.
+4. An Interface cannot have instance variables
+5. An Interface visibility must be public (or) none.
+6. If we add a new method to an Interface then we have to track down all the implementations of the interface and define implementation for the new method
+7. An Interface cannot contain constructors
+
+Can we override private or static method? 
+You cannot override a private or static method in Java. If you create a similar method with same return type and same method arguments in child class then it will hide the super class method; this is known as method hiding. Similarly, you cannot override a private method in sub class because it’s not accessible there. What you can do is create another private method with the same name in the child class. Let’s take a look at the example below to understand it better.
+https://www.geeksforgeeks.org/can-override-private-methods-java/
+
+What are the ways to handle exceptions?
+try, catch, finally, throw, throws
+
+What are checked and unchecked exceptions
+The classes which extend Throwable but not the RuntimeException are checked exceptions because they can be checked during compile time.
+whereas unchecked exceptions are those which extend runtimeexception and cannot be checked during compile time
+
+differences between throw and throws? 
+Throw is used to explicitly throw an exception.	Throws is used to declare an exception.
+Checked exceptions can not be propagated with throw only.	Checked exception can be propagated with throws.
+Throw is followed by an instance.	Throws is followed by class.
+Throw is used within the method.	Throws is used with the method signature.
+You cannot throw multiple exception	You can declare multiple exception e.g. public void method()throws IOException,SQLException.
+
+access modifiers
+								default	private protected public
+same class 						yes		yes		yes		  yes
+same package-subclass 			yes		no 		yes		  yes
+same package-non-subclass		yes		no 		yes		  yes
+different package-subclass 		no 		no 		yes 	  yes
+different package-non-subclass	no 		no 		no 		  yes

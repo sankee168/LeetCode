@@ -18,9 +18,6 @@ Because collection is an abstract representation. But what matters is the implem
 Why Map interface doesn't extend Collection interface? 
 Because map is not a collection in literal meaning. Map contains key value pairs. but there are no group of elements. So map doesn't extend collection interface
 
-Differnce between enumeration and iterators
-enumeration is twice as fast as iterator and uses less memory too. Enumeration is very basic but iterator is much safer as compared to enumeration becauese it doesn't allow other threads to modify the colleciton which it is iterating. 
-
 What is iterator fail-fast property? 
 Every time, iterator goes to next instance it checks if the current collection is being modified or not. If modified, it throws concurrentmodification exception. All of implementations of iterator are fail-fast except concurrent classes like concurrenthashmap etc
 
@@ -33,26 +30,8 @@ Set<K> keySet()
 Collection<V> values()
 Set<Map,Entry<K, V>> entrySet()
 
-Difference between HashMap and HashTable
-1. HashMap allows null key and value where as hashtable doesn't allow null key and values
-2. Hashtable is synchronized where as hashmap is not synchornized. this is why hashtable is best for multi threaded environment. 
-3. HashMap and Hashtable by default doesn't gaurentee the iteration order but LinkedHashmap(subclass of hashmap) gaurentees that
-4. HashMap is fail-fast because it gives set of keys to iterate but hashtable provides enumeration of the keys that doesn't support this feature.
-
-Difference between arrays and arraylists
-1. size if fixed in arrays where as arraylist is not
-2. arrays can take primitive types and objects where as arraylists only takes objects
-
-Difference between arraylist and linkedlist
-1. insertion, deletion and removal are faster in linkedlist where as arraylist doesn't have a concept of resizing or updating index when element is added in the middle
-2. linkedlist consumes more memory because of storing next and prev pointers
-3. arraylist is index based data structure backed by arrays where as linkedlist is not. So arraylist access is faster than linkedlist
-
 Which collection classes are threadsafe? 
 any synchronized classes are thread safe like hashtable, stack, properties
-
-Difference between queue and stack
-quque is an interface in collection class where its implementations support FIFO order but stack is class which extends vector and supports LIFO.
 
 What is collections class
 This is a utility class consisting of all static methods like binarysearch, sorting, reverse etc
@@ -65,5 +44,3 @@ This is unbounded quque based on a priority heap and we can provide comaprator f
 
 How HashSet is implemented internally?
 Internally Hashset uses hashmap to store these values. As we know hashmap keeps its keys unique. When you initialize the hashset, it internally initializes the hashmap. for any add(Object ob) on hashset, hashmap tries inserting (obj, dummy) with key as object you passed and dummy value. So if there is already an existing key it returns null in put call. So add method is being checked. 
-
-Time complexities for different collection implementations

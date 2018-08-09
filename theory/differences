@@ -1,0 +1,47 @@
+Difference between HashMap and HashTable
+1. HashMap allows null key and value where as hashtable doesn't allow null key and values
+2. Hashtable is synchronized where as hashmap is not synchornized. this is why hashtable is best for multi threaded environment. 
+3. HashMap and Hashtable by default doesn't gaurentee the iteration order but LinkedHashmap(subclass of hashmap) gaurentees that
+4. HashMap is fail-fast because it gives set of keys to iterate but hashtable provides enumeration of the keys that doesn't support this feature.
+
+Difference between arrays and arraylists
+1. size if fixed in arrays where as arraylist is not
+2. arrays can take primitive types and objects where as arraylists only takes objects
+
+Difference between arraylist and linkedlist
+1. insertion, deletion and removal are faster in linkedlist where as arraylist doesn't have a concept of resizing or updating index when element is added in the middle
+2. linkedlist consumes more memory because of storing next and prev pointers
+3. arraylist is index based data structure backed by arrays where as linkedlist is not. So arraylist access is faster than linkedlist
+
+Difference between Array list and vector?
+Array List is not synchronized where as Vector is synchronized.
+Array List is fast as it’s non-synchronized. Vector is slow as it is thread safe.
+//If an element is inserted into the Array List, it increases its Array size by 50%.	Vector defaults to doubling size of its array.
+//Array List does not define the increment size.	Vector defines the increment size.
+Before java 8 Array List can only use Iterator for traversing an Array List. Except Hashtable, Vector is the only other class which uses both Enumeration and Iterator.
+
+Difference between queue and stack
+quque is an interface in collection class where its implementations support FIFO order but stack is class which extends vector and supports LIFO.
+
+Differnce between enumeration and iterators
+enumeration is twice as fast as iterator and uses less memory too. Enumeration is very basic but iterator is much safer as compared to enumeration becauese it doesn't allow other threads to modify the colleciton which it is iterating. 
+
+Difference between stack memory and heap memory
+1. Stack memory is used by only one thread of execution where as heap memory can be used by any part of application because objects stored in heap and globally accessible.
+2. Stack memory follos LIFO manner of free memory where as heap memory management is based on several parameters like generation associated to that object, jvm garbage collection etc
+3. Stack memory exists till end of execution of thread and heap memory lives till application end but objects in heap memory might not stay throughout the process
+4. Only primitive variables and reference variables to objects in heap memory are stored in stack memory but whenever object is created it is stored in heap memory. 
+
+differences between throw and throws? 
+Throw is used to explicitly throw an exception.	Throws is used to declare an exception.
+Checked exceptions can not be propagated with throw only.	Checked exception can be propagated with throws.
+Throw is followed by an instance.	Throws is followed by class.
+Throw is used within the method.	Throws is used with the method signature.
+You cannot throw multiple exception	You can declare multiple exception e.g. public void method()throws IOException,SQLException.
+
+difference between process and thread?
+Executing instance of the program is called process. Thread is just a subset of process
+Processes will have control over child processes where as threads can have control over sibling threads of the same process.
+Change in parent process will not affect child proceeses but main thread may affect other threads of same process
+each process runs in difference memory spaces where threads of same process share the memory
+Processes are independent where as threads are dependent
