@@ -37,7 +37,8 @@ What is collections class
 This is a utility class consisting of all static methods like binarysearch, sorting, reverse etc
 
 What is comparable and comparator interface?
-Comparable interface should be implemented by any custom class if we want to use collections sorting methods. Comparable has comapreto(T obj) method which is being used by any sorting methods. Comparator interface provides compare(Object ob1, Object ob2) method. Comparable.compareTo method implementation can sort based on one field only. If we want to sort the objects based on different fields then we need to use Comparator. Comparable is defualt sorting method but if we want to sort based on different parameters at runtime, you imeplement custom comparator and provide this for sorting. 
+Comparable interface should be implemented by any custom class if we want to use collections sorting methods. Comparable has comapreto(T obj) method which is being used by any sorting methods. Comparator interface provides compare(Object ob1, Object ob2) method. Comparable.compareTo method implementation can sort based on one field only. If we want to sort the objects based on different fields then we need to use Comparator. Comparable is defualt sorting method but if we want to sort based on different parameters at runtime, you imeplement custom comparator and provide this for sorting.
+Comparable object is capable of comparing itself with another object where as comparator object is capable of comparing two different objects
 
 What is java priortity queue? 
 This is unbounded quque based on a priority heap and we can provide comaprator for deciding the priortity at the time of creation. This doesn't allow null values. This is not thread-safe and takes O(logn) time for enqueue or dequeue operations
