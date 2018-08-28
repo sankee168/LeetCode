@@ -82,3 +82,55 @@ public class Codec {
 
 
 //Lets write the iterative version of the above solution
+
+public class Codec{
+    public String serialize(TreeNode root){
+        StringBuilder sb = new StringBuidler();
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode curr = stack.pop();
+            if(curr != null){
+                sb.append(curr).append(",");
+                stack.push(curr.right);
+                stack.push(curr.left);
+            }else{
+                sb.append("X").append(",");
+            }
+        }
+        return sb.toString();
+    }
+
+    public String deserialize(String data){
+        String[] arr = data.split(",");
+        Deque<String> deque = new LinkedList<>();
+        for(String curr: arr){
+            deque.add(curr);
+        }
+
+        TreeNode root = new TreeNode(Integer.parseInt(deque.poll()));
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        TreeNode x = root;
+        int i = 1;
+        while(i < arr.length){
+            while(i < arr.length && !arr[i].equals("null")){
+                x.left = new TreeNode(Integer.parseInt(arr[i]));
+                x = x.left;
+                stack.push(x);
+                i++;
+            }
+            while(i < arr.length && arr[i].equals("null")){
+                x = stack.pop();
+                i++;
+            }
+
+            if(i < n){
+                x.right = new TreeNode(Integer.parseInt(arr[i]));
+                x = x.right;
+                stack.push(x);
+            }
+        }
+        return root;
+    }
+}
