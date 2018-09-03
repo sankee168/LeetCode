@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //Here we maintain stack of indices. If we observe all the examples, we check if stack.peek() is '(' and cur index is ')' then that is valid parentheses
 //maximum length will be differnece between cur index and top element in stack
 //Time complexity: O(n)
@@ -48,7 +47,9 @@ public int longestValidParentheses(String s){
 			}
 		}
 		max = Math.max(max, dp[i]);
-=======
+	return max;
+}
+
 public int longestValidParentheses(String s) {
     if(s.length() < 2) return 0;
 	int[] arr = {0};
@@ -69,7 +70,6 @@ public int longestValidParentheses(String s) {
 			}	
 		}
         arr = temp;
->>>>>>> d5a80beb820143cae6b4a5abde5a4bd3def39d48
 	}
 	return max;
 }
