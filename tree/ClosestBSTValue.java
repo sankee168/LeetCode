@@ -17,12 +17,13 @@
 *
 *Output: 4
 */
-
+//we go to a direction where values are closer to target
+//while processing that we keep current diff and least encountered value
 public int closestValue(TreeNode root, double target) {
 	double diff = Integer.MAX_VALUE;
 	int val = root.val;
 	while(root != null){
-		double temp = Math.abs(target, (double) root.val);
+		double temp = Math.abs(target-(double) root.val);
 		if(temp == 0) return root.val;
 		if(temp < diff){
 			val = root.val;
@@ -37,3 +38,23 @@ public int closestValue(TreeNode root, double target) {
 	
 	return val;
 }
+
+//This is another version of it
+public int closestValue(TreeNode root, double target) {
+        TreeNode left = root;
+        TreeNode right = root;
+        TreeNode temp = root;
+        while(temp != null){
+            if(target == temp.val) return temp.val;
+            if(target < (double)temp.val){
+                right = temp;
+                temp = temp.left;
+            }else{
+                left = temp;
+                temp = temp.right;
+            }
+        }
+        
+        if(Math.abs(left.val-target) > Math.abs(right.val-target)) return right.val;
+        return left.val;
+    }
