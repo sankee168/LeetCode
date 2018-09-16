@@ -45,16 +45,16 @@ class MinStack {
 //Keeping track of min at every node and pushing the difference is the key
 //but negative point here is the integer overflow
 class MinStack {
-    Stack<Integer> s;
-    int min;
+    Stack<Long> s;
+    long min;
 
     public MinStack() {
-        s = new Stack<Integer>();
+        s = new Stack<Long>();
     }
 
     public void push(int x){
         if(s.isEmpty()){
-            s.push(0);
+            s.push(0L);
             min = x;
         }else{
             s.push(x-min);
@@ -64,16 +64,18 @@ class MinStack {
 
 
     public void pop(){
-        int top = s.pop();
+        long top = s.pop();
         if(top < 0) min = min-top;
     }
 
     public int top() {
-        s.peek()+min;
+        long top = s.peek();
+        if(top > 0) return (int)(top+min);
+        else return (int)min;
     }
 
     public int getMin() {
-        return min;
+        return (int)min;
     }
 }
 

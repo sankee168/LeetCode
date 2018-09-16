@@ -26,3 +26,17 @@ public int rob(int[] nums){
 	}
 	return p1;
 }
+
+//dp function maximum amount robber can gain if he robs ith house
+public int rob(int[] nums){
+    int m = nums.length;
+    if(m == 0) return 0;
+	int[] dp = new int[m+2];
+    dp[0] = 0;
+    dp[1] = 0;
+    dp[2] = nums[0];
+    for(int i = 3; i< m+2; i++){
+        dp[i] = Math.max(dp[i-2], dp[i-3])+nums[i-2];  
+    }
+    return Math.max(dp[m+1], dp[m]);
+}

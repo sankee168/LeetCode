@@ -49,3 +49,24 @@ private boolean util(TreeNode left, TreeNode right){
 	if(left.val != right.val) return false;
 	return util(left.left, right.right) && util(left.right, right.left);
 }
+
+public boolean isSymmetric(TreeNode root) {
+        if(root == null) return true;
+        if(root.left == null && root.right ==null) return true;
+        if(root.left == null || root.right == null) return false;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root.left);
+        stack.push(root.right);
+        while(!stack.isEmpty()){
+            TreeNode r = stack.pop();
+            TreeNode l = stack.pop();
+            if(r == null && l == null) continue;
+            if(r == null || l == null) return false;
+            if(l.val != r.val) return false;
+            stack.push(l.left);
+            stack.push(r.right);
+            stack.push(l.right);
+            stack.push(r.left);
+        }
+        return true;
+    }

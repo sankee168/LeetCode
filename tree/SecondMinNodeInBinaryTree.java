@@ -25,6 +25,7 @@
 *Explanation: The smallest value is 2, but there isn't any second smallest value.
 */
 
+//we do a dfs search on the tree and check if curr.val is greater than 
 int min = 0;
 int ans = Integer.MAX_VALUE;
 
@@ -44,3 +45,24 @@ private void dfs(TreeNode root){
         if(root.right != null) dfs(root.right);
     }
 }
+
+//this is iterative version of this
+public int findSecondMinimumValue(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        int min = Integer.MAX_VALUE;
+        stack.add(root);
+        while(!stack.isEmpty()){
+            TreeNode curr = stack.pop();
+            if(curr.val > root.val && curr.val < min){
+                min = curr.val;
+            }
+            if(curr.val == root.val){
+            	if(curr.left != null){
+            		stack.push(curr.left);
+            		stack.push(curr.right);
+            	}
+            }
+        }
+        if(min == Integer.MAX_VALUE) return -1;
+        return min;
+    }

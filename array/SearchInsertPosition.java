@@ -20,10 +20,10 @@ public int searchInsert(int[] nums, int target) {
         if(nums[m] == target){
             return m;
         }
-        if(nums[m] < target){
-            i = m+1;
+        else if(nums[m] > target){
+            j = mid
         }
-        else{ j =             
+        else{ i = mid+1;}           
             
     return j;
 }

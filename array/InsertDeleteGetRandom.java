@@ -1,6 +1,7 @@
-//Note that set doesn't have get(element) functionality as there is no order associated to it. 
+//Note that set doesn't have get(index) functionality as there is no order associated to it. 
 class RandomizedSet {
 
+    //this stores the value to list index mapping
     Map<Integer, Integer> map;
     List<Integer> list;
     Random random = new Random();
@@ -21,6 +22,9 @@ class RandomizedSet {
     }
     
     /** Removes a value from the set. Returns true if the set contained the specified element. */
+    //if index of this value is not last of list, then complexity will shoot out of O(n)
+    //rather we update the map by setting the index value to last value in list
+    //and deleting the last value
     public boolean remove(int val) {
         if(!map.contains(val)) return false;
         int index = map.get(val);

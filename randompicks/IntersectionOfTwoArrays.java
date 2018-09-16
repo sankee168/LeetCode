@@ -28,3 +28,30 @@ public int[] intersection(int[] nums1, int[] nums2) {
 	 }
 	 return result;
 }
+
+//We can sort both the arrays and go each one by one
+//Time complexity: O(nlogn + mlogm)
+//THis is better used when data set it too large to fit in memory
+public int[] intersection(int[] nums1, int[] nums2) {
+	Arrays.sort(nums1);
+	Arrays.sort(nums2);
+	int m = nums1.length;
+	int n = nums2.lengthl
+	Set<Integer> res = new HashSet<>();
+	int i = 0, j = 0;
+	while(i < m && j < n){
+		if(nums1[i] < nums2[j]) i++;
+		else if(nums1[i] > nums2[j]) j++;
+		else{
+			set.add(nums1[i]);
+			i++; j++;
+		}
+	}
+
+	 int[] result = new int[res.size()];
+	 i = 0;
+	 for(int curr: res){
+	 	result[i++] = curr;
+	 }
+	 return result;
+}
