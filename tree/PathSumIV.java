@@ -1,3 +1,5 @@
+
+
 //main idea is to find the node level, position and value from integer
 //and calculate the right children level+position value and keep adding that to sum
 //time complexity: O(n) Space complexity: O(n)

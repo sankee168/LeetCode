@@ -20,3 +20,21 @@ public int kthSmallest(TreeNode root, int k) {
 	}
 	return curr.val;
 }
+
+
+int count = 0;
+int ans = 0;
+public int kthSmallest(TreeNode root, int k){
+	inorder(root, k);
+	return ans;
+}
+
+private int inorder(TreeNode root, int k){
+	if(root.left != null) inorder(root.left, k);
+	count++;
+	if(count == k)  {
+		ans = root.val;
+		return;
+	}
+	if(root.right != null) inorder(root.right, k);
+}

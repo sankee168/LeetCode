@@ -14,7 +14,18 @@ public TreeNode upsideDownBinaryTree(TreeNode root) {
             prev = curr;
             curr = next;        
         }
-        
         return prev;
-        
     }
+
+//Idea is again to rotate the tree right side and make sure right child becomes left of left child and root becomes right child
+public TreeNode upsideDownBinaryTree(TreeNode root) {
+        if(root == null) return null;
+        if(root.left == null && root.right == null) return root;
+        TreeNode nRoot = upsideDownBinaryTree(root.left);
+        
+        root.left.left = root.right;
+        root.left.right = root;
+        root.left = null;
+        root.right = null;
+        return nRoot;
+    }    

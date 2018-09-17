@@ -32,3 +32,33 @@ public class BSTIterator {
         return val;
     }
 }
+
+
+//If time complexity of next and hasNext should be O(1), then we need to precompute the inorder like below
+//but we are defying the concept of iterator itself
+public class BSTIterator {
+    Queue<Integer> q1;
+
+    public BSTIterator(TreeNode root) {
+        q1 = new LinkedList<>();
+        inorder(root);
+    }
+
+    /** @return whether we have a next smallest number */
+    public boolean hasNext() {
+        return !q1.isEmpty();
+    }
+
+    /** @return the next smallest number */
+    public int next() {
+        return q1.poll();
+    }
+
+    private void inorder(TreeNode root){
+        if(root == null) return;
+        inorder(root.left);
+        q1.add(root.val);
+        inorder(root.right);
+    }
+}
+

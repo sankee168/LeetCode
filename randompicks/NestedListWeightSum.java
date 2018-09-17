@@ -75,3 +75,26 @@ private int dfs(NestedInteger curr, int depth){
 	}
 	return res;
 }
+
+//This is another bfs sort of solution keeping track of height of each node
+public int depthSum(List<NestedInteger> nestedList) {
+        Queue<NestedInteger> queue = new LinkedList<>();
+        for(NestedInteger curr: nestedList) queue.add(curr);
+        int sum = 0;
+        int height = 1;
+        while(!queue.isEmpty()){
+            int size  = queue.size();
+            for(int i = 0; i < size; i++){
+                NestedInteger curr = queue.poll();
+                if(curr.isInteger()){
+                    sum += (curr.getInteger()*height);
+                }else{
+                    for(NestedInteger sub : curr.getList()){
+                        queue.add(sub);
+                    }
+                }
+            }
+            height++;
+        }
+        return sum;
+    }
