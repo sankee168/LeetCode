@@ -1,5 +1,6 @@
 //main problem is to find the longest increasing subsequence. As given in the example, it is not continuous. 
 //lets say dp[i] holds the length of longest increasing subsequence starting at i
+//do recurrence relation willbe dp[i] = max(dp[i], if(nums[j] > nums[i] dp[j]+1)
 //Time complexity: O(n2)
 //Space complexity: O(n)
 public int lengthOfLIS(int[] nums) {
