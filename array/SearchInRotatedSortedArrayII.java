@@ -1,4 +1,5 @@
-//Complexity: O(n)
+//Average complexity: O(logn)
+//Worst Complexity: O(n)
 public boolean search(int[] nums, int target) {
     if(nums.length == 0) return false;
 	int i = 0;
