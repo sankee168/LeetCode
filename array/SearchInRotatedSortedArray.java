@@ -18,6 +18,7 @@ public int search(int[] nums, int target) {
 		//else right is sorted
 		}else {
 			//check if target is in right half
+			//as we are taking j as upper boung not inclusive, we have to play with i and mid
 			if(target < nums[i] && target > nums[mid]){
 				i =mid+1;
 			}else {

@@ -1,12 +1,17 @@
 public int findMin(int[] nums) {
 	int i = 0;
+	//as our search space is inside nums, we can have upper bound to be last element
 	int j = nums.length-1;
 	while(i <= j){
 		int mid = (i+j)/2;
+		//if there are only two elements to search
 		if(j-i <= 1) return Math.min(nums[i], nums[j]);
+		//if everything is sorted then return start
 		if(nums[i] < nums[mid] && nums[mid] < nums[j]){
 			return nums[i];
-		}else if(nums[j] < nums[mid]){
+		}else if(nums[i] < nums[mid]){
+			//if first half is sorted and other is not. then min lies in second half
+			//we have to consider mid too because we don't have a check on mid anywhere
 			i = mid;
 		}else {
 			j = mid;
